@@ -2,16 +2,34 @@
 
 A Chrome extension that adds a photo gallery to every Letterboxd film page — movie stills and posters pulled from [TMDB](https://www.themoviedb.org/), so you can see how a film looks before (or after) you watch it.
 
-![Letterboxd Photos extension](icons/icon128.png)
+---
+
+## Screenshots
+
+**Stills — in context**
+![Stills in context](screenshots/image-1778425479822.jpg)
+
+**Stills — carousel close-up**
+![Stills carousel](screenshots/image-1778425521221.png)
+
+**Posters — in context**
+![Posters in context](screenshots/image-1778425528664.jpg)
+
+**Posters — close-up**
+![Posters close-up](screenshots/image-1778425532991.png)
+
+---
 
 ## What it does
 
-- Adds a **photo panel** to the sidebar of every Letterboxd film page
-- Shows up to **24 clean movie stills** (no title-card duplicates, no multi-language poster copies)
+- Adds a **photo panel** directly to every Letterboxd film page
+- Shows up to **24 clean movie stills** — no title-card duplicates, no multi-language poster copies
 - Switch between **Stills** and **Posters** tabs
 - Navigate with **arrow keys** or on-screen arrows
 - Click any photo to open a **full-screen lightbox** with a grid gallery view
-- Images are sorted by community rating — best shots first
+- Images sorted by community rating — best shots first
+
+---
 
 ## Setup
 
@@ -22,22 +40,30 @@ This extension requires a free TMDB API key. TMDB is free for personal and non-c
 3. Copy your **API Read Access Token** (the long `eyJ...` token)
 4. Click the extension icon in Chrome → paste the token → **Save & Validate**
 
+---
+
 ## Install from source
 
 1. Clone this repo
 2. Go to `chrome://extensions` in Chrome
-3. Enable **Developer mode** (top right)
+3. Enable **Developer mode** (top right toggle)
 4. Click **Load unpacked** → select the repo folder
 5. Follow the setup steps above
+
+---
 
 ## Privacy
 
 Your TMDB API key is stored locally in Chrome storage and never leaves your browser. No data is collected or sent anywhere except directly to the TMDB API.
 
+---
+
 ## Credits
 
 - Film data and images provided by [TMDB](https://www.themoviedb.org/)
 - Built for [Letterboxd](https://letterboxd.com/) — this extension is not affiliated with or endorsed by Letterboxd or TMDB
+
+---
 
 ## License
 
