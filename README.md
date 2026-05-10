@@ -7,16 +7,16 @@ A Chrome extension that adds a photo gallery to every Letterboxd film page — m
 ## Screenshots
 
 **Stills — in context**
-![Stills in context](screenshots/image-1778425479822.jpg)
+![Stills in context](screenshots/image-1778425521221_1280x800.jpg)
 
 **Stills — carousel close-up**
-![Stills carousel](screenshots/image-1778425521221.png)
+![Stills carousel](screenshots/image-1778427492055_1280x800.jpg)
 
 **Posters — in context**
-![Posters in context](screenshots/image-1778425528664.jpg)
+![Posters in context](screenshots/image-1778425528664_1280x800.jpg)
 
 **Posters — close-up**
-![Posters close-up](screenshots/image-1778425532991.png)
+![Posters close-up](screenshots/image-1778425532991_1280x800.jpg)
 
 ---
 
