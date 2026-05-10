@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  background: #1a1a1a;
+  color: #ccc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+}
+
+.container {
+  padding: 18px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #99aabb;
+}
+
+.input-row {
+  display: flex;
+  gap: 6px;
+}
+
+input[type="password"],
+input[type="text"] {
+  flex: 1;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #eee;
+  font-size: 12px;
+  padding: 7px 10px;
+  outline: none;
+  font-family: monospace;
+  min-width: 0;
+}
+
+input:focus {
+  border-color: #00b020;
+}
+
+.icon-btn {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 8px;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.icon-btn:hover {
+  background: #222;
+  color: #ccc;
+}
+
+.help-link {
+  font-size: 11px;
+  color: #00b020;
+  text-decoration: none;
+}
+
+.help-link:hover {
+  text-decoration: underline;
+}
+
+.status {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  line-height: 1.4;
+}
+
+.status.hidden {
+  display: none;
+}
+
+.status.error {
+  background: #2a1010;
+  border: 1px solid #552222;
+  color: #ff7777;
+}
+
+.status.success {
+  background: #0a2010;
+  border: 1px solid #226622;
+  color: #66cc66;
+}
+
+.status.loading {
+  background: #1a1a2a;
+  border: 1px solid #334;
+  color: #99aabb;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-primary {
+  flex: 1;
+  background: #00b020;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover {
+  background: #00c824;
+}
+
+.btn-primary:disabled {
+  background: #1a4a1a;
+  color: #555;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #888;
+  font-size: 13px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+.saved-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #559955;
+}
+
+.saved-indicator.hidden {
+  display: none;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #00b020;
+  border-radius: 50%;
+  flex-shrink: 0;
+}

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Letterboxd TMDB Photos",
+  "description": "Adds a photo gallery from TMDB to Letterboxd film pages.",
+  "version": "1.0.0",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://letterboxd.com/*",
+    "https://api.themoviedb.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://letterboxd.com/film/*"],
+      "js": ["content.js"],
+      "css": ["panel.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Letterboxd TMDB Photos"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

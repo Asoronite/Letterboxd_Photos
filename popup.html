@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letterboxd TMDB Photos</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>TMDB Photos</h1>
+    <p class="subtitle">Adds photo galleries to Letterboxd film pages.</p>
+
+    <div class="field">
+      <label for="api-key">TMDB API Read Access Token</label>
+      <div class="input-row">
+        <input
+          type="password"
+          id="api-key"
+          placeholder="eyJhbGciOiJIUzI1NiJ9..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="toggle-visibility" class="icon-btn" title="Show/hide key">👁</button>
+      </div>
+      <a
+        href="https://www.themoviedb.org/settings/api"
+        target="_blank"
+        rel="noopener"
+        class="help-link"
+      >Get a free key at themoviedb.org →</a>
+    </div>
+
+    <div id="status" class="status hidden"></div>
+
+    <div class="actions">
+      <button id="save-btn" class="btn-primary">Save &amp; Validate</button>
+      <button id="clear-btn" class="btn-secondary">Clear</button>
+    </div>
+
+    <div id="saved-indicator" class="saved-indicator hidden">
+      <span class="dot"></span> Key saved and working
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
