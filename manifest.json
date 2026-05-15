@@ -1,19 +1,52 @@
 {
   "manifest_version": 3,
   "name": "Letterboxd Photos",
-  "description": "Adds a photo gallery from TMDB to Letterboxd film pages.",
-  "version": "1.0.0",
+  "description": "Adds TMDB photo galleries to Letterboxd film and contributor pages.",
+  "version": "1.1.0",
   "permissions": ["storage"],
   "host_permissions": [
     "https://letterboxd.com/*",
-    "https://api.themoviedb.org/*"
+    "https://api.themoviedb.org/*",
+    "https://image.tmdb.org/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://letterboxd.com/film/*"],
+      "matches": [
+        "https://letterboxd.com/film/*",
+        "https://letterboxd.com/actor/*",
+        "https://letterboxd.com/director/*",
+        "https://letterboxd.com/co-director/*",
+        "https://letterboxd.com/additional-directing/*",
+        "https://letterboxd.com/producer/*",
+        "https://letterboxd.com/executive-producer/*",
+        "https://letterboxd.com/writer/*",
+        "https://letterboxd.com/story/*",
+        "https://letterboxd.com/casting/*",
+        "https://letterboxd.com/cinematography/*",
+        "https://letterboxd.com/editor/*",
+        "https://letterboxd.com/composer/*",
+        "https://letterboxd.com/sound/*",
+        "https://letterboxd.com/visual-effects/*",
+        "https://letterboxd.com/production-design/*",
+        "https://letterboxd.com/art-direction/*",
+        "https://letterboxd.com/set-decoration/*",
+        "https://letterboxd.com/costumes/*",
+        "https://letterboxd.com/makeup/*",
+        "https://letterboxd.com/hairstyling/*",
+        "https://letterboxd.com/title-design/*",
+        "https://letterboxd.com/lighting/*",
+        "https://letterboxd.com/camera-operator/*",
+        "https://letterboxd.com/stunts/*",
+        "https://letterboxd.com/choreography/*",
+        "https://letterboxd.com/songs/*",
+        "https://letterboxd.com/original-writer/*",
+        "https://letterboxd.com/assistant-director/*",
+        "https://letterboxd.com/costume-design/*",
+        "https://letterboxd.com/search/*"
+      ],
       "js": ["content.js"],
       "css": ["panel.css"]
     }

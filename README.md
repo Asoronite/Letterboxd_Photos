@@ -1,6 +1,6 @@
 # Letterboxd Photos
 
-A Chrome extension that adds a photo gallery to every Letterboxd film page — movie stills and posters pulled from [TMDB](https://www.themoviedb.org/), so you can see how a film looks before (or after) you watch it.
+A Chrome extension that adds photo galleries to Letterboxd — movie stills and posters on film pages, plus profile photo galleries for every actor, director and crew member, and photo previews on cast hover. All powered by [TMDB](https://www.themoviedb.org/).
 
 ---
 
@@ -22,12 +22,22 @@ A Chrome extension that adds a photo gallery to every Letterboxd film page — m
 
 ## What it does
 
+**On film pages**
 - Adds a **photo panel** directly to every Letterboxd film page
 - Shows up to **24 clean movie stills** — no title-card duplicates, no multi-language poster copies
 - Switch between **Stills** and **Posters** tabs
-- Navigate with **arrow keys** or on-screen arrows
 - Click any photo to open a **full-screen lightbox** with a grid gallery view
-- Images sorted by community rating — best shots first
+- Hover any cast member to see their **photo + character name** in a single tooltip
+
+**On contributor pages (actor, director, writer, producer, cinematographer, editor, composer, …)**
+- The static profile photo is replaced with a **photo gallery** of every available headshot from TMDB
+- Same carousel + lightbox + grid view as the film gallery
+- Sorted by community rating — best shots first
+
+**General**
+- Navigate with **arrow keys** or on-screen arrows
+- Skeleton placeholder keeps the gallery's size while images load, so the layout never jumps
+- Neighbouring images are preloaded for instant left/right navigation
 
 ---
 
