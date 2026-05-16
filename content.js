@@ -404,9 +404,10 @@ function openLightbox(startIndex) {
   lb.id = "tmdb-lightbox";
 
   function renderLightbox() {
+    const isPortrait = pageMode === "person" || activeTab === "posters";
     lb.innerHTML = `
       <div class="lb-backdrop"></div>
-      <div class="lb-shell">
+      <div class="lb-shell lb-mode-${mode}${isPortrait ? " lb-portrait" : ""}">
         <div class="lb-topbar">
           <span class="lb-counter">${idx + 1} / ${images.length}</span>
           <div class="lb-topbar-actions">
@@ -554,29 +555,38 @@ function injectPhotoIntoTooltip(inner, photo) {
   img.dataset.url = photo;
   img.alt = "";
   inner.insertBefore(img, inner.firstChild);
+  // Flag the bubble so CSS pins it to a fixed width — keeps margins balanced
+  // regardless of role-name length, instead of letting Twipsy size to the text.
+  inner.classList.add("tmdb-has-photo");
+  positionTooltipAbove(inner);
+}
 
-  // Twipsy positioned the popup assuming text-only size. After injecting the
-  // photo the bubble grows wider AND taller — re-align it horizontally so the
-  // arrow points at the link center, and shift it up by the photo's height.
+// Twipsy positions the bubble assuming the text-only height it had when it
+// first opened. After we inject the photo the bubble is much taller, so we
+// shift it up by exactly the photo block's height to put the arrow back on
+// the link. Called on every tick because Twipsy can re-position the bubble
+// on its own (scroll, mousemove) and our one-shot transform would be lost.
+function positionTooltipAbove(inner) {
   const popup = inner.closest(".twipsy, .tooltip, [role='tooltip']");
   if (!popup) return;
+  const img = inner.querySelector(".tmdb-cast-tooltip-photo");
+  if (!img) return;
+  // CSS pins the photo at 140 × 210 (width: 140px; aspect-ratio: 2/3), so
+  // fall back to 210 if offsetHeight reads 0 before layout — without the
+  // fallback the bubble would stay at text-only position and overlap the link.
+  const block = (img.offsetHeight || 210) + 6;
+  let translateX = 0;
   const link = hoveredActorLink;
-  requestAnimationFrame(() => {
-    const block = img.offsetHeight + 6;
-    if (!block) return;
-
-    let translateX = 0;
-    if (link && link.isConnected) {
-      const linkRect = link.getBoundingClientRect();
-      // offsetLeft gives the position without transforms applied, so the math
-      // doesn't drift on repeated re-injections.
-      const untransformedCenter = popup.offsetLeft + popup.offsetWidth / 2;
-      const linkPageCenter =
-        linkRect.left + window.scrollX + linkRect.width / 2;
-      translateX = linkPageCenter - untransformedCenter;
-    }
-    popup.style.transform = `translate(${translateX}px, -${block}px)`;
-  });
+  if (link && link.isConnected) {
+    const linkRect = link.getBoundingClientRect();
+    // offsetLeft is the position without transforms applied — so the math
+    // doesn't drift on repeated re-positioning.
+    const untransformedCenter = popup.offsetLeft + popup.offsetWidth / 2;
+    const linkPageCenter =
+      linkRect.left + window.scrollX + linkRect.width / 2;
+    translateX = linkPageCenter - untransformedCenter;
+  }
+  popup.style.transform = `translate(${translateX}px, -${block}px)`;
 }
 
 // Maintenance loop: while a person link is hovered, keep the photo visible.
@@ -633,6 +643,18 @@ function stopInjectionLoop() {
     injectionLoopId = null;
   }
   hideCustomTip();
+  // Twipsy reuses a single tooltip element — strip our marker, photo, AND the
+  // upward translate. Without clearing the transform, the next hover would
+  // briefly see the bubble at the previous link's offset (≈210px high) before
+  // our next tick injects the new photo, making the role text appear to
+  // levitate above the link until the photo catches up.
+  document.querySelectorAll(".tmdb-has-photo").forEach((el) => {
+    el.classList.remove("tmdb-has-photo");
+  });
+  document.querySelectorAll(".tmdb-cast-tooltip-photo").forEach((el) => el.remove());
+  document.querySelectorAll(".twipsy").forEach((el) => {
+    el.style.transform = "";
+  });
 }
 
 function startInjectionLoop() {
@@ -650,7 +672,13 @@ function startInjectionLoop() {
       const inner = findVisibleTooltipInner();
       if (!inner) return;
       const existing = inner.querySelector(".tmdb-cast-tooltip-photo");
-      if (existing?.dataset.url === photo) return;
+      if (existing?.dataset.url === photo) {
+        // Same photo already there — but Twipsy may have re-positioned the
+        // bubble (mousemove inside the link reshuffles the popup), so re-pin
+        // the upward translate so the photo doesn't drift off the link.
+        positionTooltipAbove(inner);
+        return;
+      }
       injectPhotoIntoTooltip(inner, photo);
     };
     tick();

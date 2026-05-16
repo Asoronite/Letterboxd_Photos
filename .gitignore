@@ -1,2 +1,5 @@
 .DS_Store
 make_icons.py
+make_banner.py
+__pycache__/
+*.pyc

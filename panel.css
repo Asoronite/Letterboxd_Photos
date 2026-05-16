@@ -244,12 +244,30 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  width: min(92vw, 1100px);
-  height: 92vh;
-  max-height: 92vh;
   background: #111;
   border-radius: 8px;
   overflow: hidden;
+  max-height: 92vh;
+}
+
+/* Single view: shell hugs the image so there's no empty band between the
+   topbar and the photo. Width is the smaller of viewport, 1100px, or the
+   width implied by capping height at the viewport. */
+.lb-shell.lb-mode-single .lb-single {
+  flex: none;
+  width: min(92vw, 1100px, calc((92vh - 50px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+}
+
+.lb-shell.lb-mode-single.lb-portrait .lb-single {
+  width: min(92vw, calc((92vh - 50px) * 2 / 3));
+  aspect-ratio: 2 / 3;
+}
+
+/* Grid view keeps a roomy fixed-size shell so thumbnails have space to flow. */
+.lb-shell.lb-mode-grid {
+  width: min(92vw, 1100px);
+  height: 92vh;
 }
 
 /* Top bar */
@@ -299,8 +317,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
-  min-height: 0;
   background: #000;
 }
 
@@ -373,6 +389,12 @@
   display: block;
 }
 
+/* Portrait content (posters, people) — show thumbs at their native 2:3
+   proportion so they aren't squashed into a 16:9 box. */
+.lb-shell.lb-portrait .lb-thumb {
+  aspect-ratio: 2 / 3;
+}
+
 /* ── Cast hover: photo injected into Letterboxd's existing tooltip ─────────── */
 
 .tmdb-cast-tooltip-photo {
@@ -382,12 +404,27 @@
   object-fit: cover;
   border-radius: 4px;
   margin: 0 auto 6px;
+  /* Inset 1px line matches the carousel/lightbox photo treatment. outline
+     (not box-shadow) works because <img> is a replaced element. */
+  outline: 1px solid rgba(255, 255, 255, 0.18);
+  outline-offset: -1px;
 }
 
-/* Twipsy wraps content tightly; give it room for the wider photo. */
+/* Twipsy normally sizes the bubble to its text, so a long role name like
+   "Captain Jack Sparrow" makes the bubble wider than the 140px photo and the
+   margins look lopsided. Pin the inner to the photo width whenever we've
+   injected our photo so the bubble stays balanced for any role name. */
 .twipsy .twipsy-inner,
 .tooltip .tooltip-inner {
   max-width: none;
+}
+
+.twipsy .twipsy-inner.tmdb-has-photo,
+.tooltip .tooltip-inner.tmdb-has-photo {
+  width: 140px;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* ── Crew / contributor hover: our own photo-only popup ────────────────────── */
@@ -410,6 +447,8 @@
   aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius: 2px;
+  outline: 1px solid rgba(255, 255, 255, 0.18);
+  outline-offset: -1px;
 }
 
 /* ── Search results: replace the star placeholder with a TMDB photo ──────── */

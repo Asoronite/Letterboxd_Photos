@@ -1,6 +1,15 @@
 const TMDB_BASE = "https://api.themoviedb.org/3";
 const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p";
 
+// First-time install → open the setup guide in a new tab so the user doesn't
+// land in the popup wondering what to do. Only fires on fresh install, not on
+// browser restarts, manifest reloads, or version bumps.
+chrome.runtime.onInstalled.addListener(({ reason }) => {
+  if (reason === "install") {
+    chrome.tabs.create({ url: chrome.runtime.getURL("onboarding.html") });
+  }
+});
+
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === "FETCH_IMAGES") {
     handleFetchImages(message.imdbId).then(sendResponse);

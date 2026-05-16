@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Letterboxd TMDB Photos</title>
+  <title>Letterboxd Photos</title>
   <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
   <div class="container">
-    <h1>TMDB Photos</h1>
-    <p class="subtitle">Adds photo galleries to Letterboxd film and contributor pages.</p>
+
+    <header class="popup-header">
+      <img src="icons/icon48.png" alt="" class="popup-icon" />
+      <h1>Letterboxd Photos</h1>
+    </header>
 
     <div class="field">
       <label for="api-key">TMDB API Read Access Token</label>
@@ -23,12 +26,9 @@
         />
         <button id="toggle-visibility" class="icon-btn" title="Show/hide key">👁</button>
       </div>
-      <a
-        href="https://www.themoviedb.org/settings/api"
-        target="_blank"
-        rel="noopener"
-        class="help-link"
-      >Get a free key at themoviedb.org →</a>
+      <!-- Primary help: the guided onboarding. Pulses when no key is saved
+           so first-time openers go here first, not to the raw TMDB link. -->
+      <a href="#" id="open-guide" class="help-link">First time? Open the setup guide →</a>
     </div>
 
     <div id="status" class="status hidden"></div>
@@ -41,6 +41,18 @@
     <div id="saved-indicator" class="saved-indicator hidden">
       <span class="dot"></span> Key saved and working
     </div>
+
+    <!-- Secondary, muted: the direct TMDB shortcut, for users who already
+         know the drill and don't need the tutorial. -->
+    <div class="popup-footer">
+      <a
+        href="https://www.themoviedb.org/settings/api"
+        target="_blank"
+        rel="noopener"
+        class="footer-link"
+      >Already have a key? Go to themoviedb.org →</a>
+    </div>
+
   </div>
   <script src="popup.js"></script>
 </body>
