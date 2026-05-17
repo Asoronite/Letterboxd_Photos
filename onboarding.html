@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letterboxd Photos — Setup Guide</title>
+  <link rel="stylesheet" href="onboarding.css" />
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-brand">
+      <img src="icons/icon128.png" alt="" class="hero-icon" />
+      <span class="hero-brand-name">Letterboxd Photos</span>
+    </div>
+    <h1>One small setup unlocks it all</h1>
+    <div class="hero-actions">
+      <a href="#why" class="hero-btn hero-btn-primary">Quickly set up the key</a>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- ── FEATURES (shown first — lead with the payoff) ───────────────────── -->
+  <section class="block" id="features">
+    <div class="block-head">
+      <h2>Photos, where you'd expect them</h2>
+      <p class="block-sub">
+        All slotted into Letterboxd's existing layout —
+        no extra panels, no new pages to learn.
+      </p>
+    </div>
+
+    <ul class="features">
+
+      <li class="feature">
+        <figure class="feature-shot">
+          <img src="screenshots/image-1778425521221_1280x800.jpg" alt="" />
+        </figure>
+        <div class="feature-text">
+          <h3>Stills &amp; posters</h3>
+          <p>A photo carousel in every film sidebar.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <figure class="feature-shot">
+          <img src="screenshots/image-1778425528664_1280x800.jpg" alt="" />
+        </figure>
+        <div class="feature-text">
+          <h3>Cast &amp; crew galleries</h3>
+          <p>Every contributor's TMDB photos, on their page.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <figure class="feature-shot">
+          <img src="screenshots/image-1778425532991_1280x800.jpg" alt="" />
+        </figure>
+        <div class="feature-text">
+          <h3>Faces on hover</h3>
+          <p>Actor photos in Letterboxd's role tooltip.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <figure class="feature-shot">
+          <img src="screenshots/image-1778427492055_1280x800.jpg" alt="" />
+        </figure>
+        <div class="feature-text">
+          <h3>Full-screen lightbox</h3>
+          <p>Single view or grid, with keyboard nav.</p>
+        </div>
+      </li>
+
+      <li class="feature feature-bonus">
+        <div class="feature-text">
+          <h3>Search thumbnails</h3>
+          <p>Real TMDB photos in place of the star icon on search results.</p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── WHY (short, sits right before setup so it's the last thing read) ── -->
+  <section class="block" id="why">
+    <div class="block-head">
+      <h2>Why need a key?</h2>
+    </div>
+    <ul class="why-grid">
+      <li>
+        <h3>Photos come from TMDB</h3>
+        <p>Letterboxd doesn't have a photo gallery of its own.</p>
+      </li>
+      <li>
+        <h3>One key per user</h3>
+        <p>TMDB gives them out for free.</p>
+      </li>
+      <li>
+        <h3>Stays with you</h3>
+        <p>We never see your key. <a href="PRIVACY.md" target="_blank" rel="noopener">Privacy →</a></p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── SETUP ───────────────────────────────────────────────────────────── -->
+  <section class="block" id="setup">
+    <div class="block-head">
+      <h2>Get your free TMDB key</h2>
+      <p class="block-sub">
+        Six small steps. The form in step 4 trips most people up — we've
+        spelled out exactly what to put in each field so it doesn't.
+      </p>
+    </div>
+
+    <ol class="steps">
+
+      <li class="step">
+        <span class="step-num">1</span>
+        <div class="step-body">
+          <h3>Create a free TMDB account</h3>
+          <p>
+            Sign up with an email at
+            <a href="https://www.themoviedb.org/signup" target="_blank" rel="noopener">themoviedb.org/signup</a>
+            and verify the confirmation email they send.
+          </p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="step-num">2</span>
+        <div class="step-body">
+          <h3>Open the API settings page</h3>
+          <p>
+            Once logged in, go to
+            <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener">themoviedb.org/settings/api</a>
+            (or click your avatar → <em>Settings</em> → <em>API</em> in the left sidebar).
+          </p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="step-num">3</span>
+        <div class="step-body">
+          <h3>Request a new key</h3>
+          <p>
+            Click <em>“Click here”</em> next to <em>Request an API Key</em>, then pick
+            <strong>Developer</strong> (free) and accept the terms.
+          </p>
+          <p class="note">
+            Pick <em>Developer</em> — not <em>Personal</em>. Personal is reserved for
+            commercial partnerships and asks for a lot more info.
+          </p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="step-num">4</span>
+        <div class="step-body">
+          <h3>Fill out the application form</h3>
+          <p>
+            This is where most people get stuck. The fields ask developer-y questions
+            for a personal-use case — anything reasonable works:
+          </p>
+          <table class="form-hints">
+            <tbody>
+              <tr>
+                <td>Type of Use</td>
+                <td><code>Website</code></td>
+              </tr>
+              <tr>
+                <td>Application Name</td>
+                <td><code>Personal use</code></td>
+              </tr>
+              <tr>
+                <td>Application URL</td>
+                <td><code>http://localhost</code> <span class="muted">(anything works)</span></td>
+              </tr>
+              <tr>
+                <td>Application Summary</td>
+                <td><code>Personal use to display TMDB photos on my browser.</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="note">
+            The summary field has a minimum length — the line above is long enough.
+            The rest of the form (name, country, etc.) is straightforward.
+            Approval is usually instant.
+          </p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="step-num">5</span>
+        <div class="step-body">
+          <h3>Copy the Read Access Token</h3>
+          <p>
+            After approval, the API page shows two values. You want the
+            <strong>API Read Access Token</strong> — the long one starting with
+            <code>eyJ…</code>. Click the copy icon next to it.
+          </p>
+          <p class="note">
+            Don't copy the short <em>API Key (v3 auth)</em> at the top — the
+            extension uses bearer authentication, which needs the longer
+            Read Access Token instead.
+          </p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="step-num">6</span>
+        <div class="step-body">
+          <h3>Paste it into the extension</h3>
+          <p>
+            Click the Letterboxd Photos icon in your browser toolbar
+            <span class="muted">(if you don't see it, pin it from the puzzle-piece menu)</span>,
+            paste the token into the field, and hit <em>Save &amp; Validate</em>.
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ── OUTRO ───────────────────────────────────────────────────────────── -->
+  <section class="block outro">
+    <h2>That's it</h2>
+    <p>
+      Open any
+      <a href="https://letterboxd.com" target="_blank" rel="noopener">letterboxd.com</a>
+      film or person page and you should see the gallery appear in the sidebar.
+      You can revisit this guide any time from the extension popup — there's a
+      <em>Setup guide</em> link at the bottom.
+    </p>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  Letterboxd Photos · powered by
+  <a href="https://www.themoviedb.org" target="_blank" rel="noopener">TMDB</a> ·
+  not affiliated with Letterboxd or TMDB
+</footer>
+
+<!-- Small fixed nudge so first-time visitors realize the page continues
+     below the fold. Click to hop to the next section heading. Hides itself
+     once the user reaches the bottom of the page. -->
+<button class="scroll-cue" id="scroll-cue" type="button"
+        aria-label="Scroll to next section">
+  <svg viewBox="0 0 12 8" width="14" height="10" aria-hidden="true">
+    <path d="M1 1l5 5 5-5" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<!-- MV3's default CSP blocks inline <script> blocks — load the cue logic from
+     an external file so it actually runs. -->
+<script src="onboarding.js"></script>
+
+</body>
+</html>

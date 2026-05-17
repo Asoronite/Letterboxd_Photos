@@ -1,0 +1,612 @@
+/* ── Reset / base ─────────────────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: #0e1014;
+  color: #c8ccd2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Anchor jumps from the hero CTAs glide instead of snap, and stop a little
+   below the top edge so the section's eyebrow label is visible. */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 24px; }
+
+a {
+  color: #00c030;
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  background: #1b2026;
+  border: 1px solid #2a3038;
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: #e6eaef;
+}
+
+em { font-style: normal; color: #e6eaef; font-weight: 500; }
+strong { color: #fff; font-weight: 600; }
+
+.muted { color: #6b7480; }
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+
+.hero {
+  background:
+    radial-gradient(80% 100% at 50% 0%, rgba(0, 192, 48, 0.10), transparent 60%),
+    linear-gradient(180deg, #14181c, #0e1014);
+  border-bottom: 1px solid #1b2026;
+  padding: 22px 24px 26px;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.hero-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.hero-brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.hero-icon {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 5px 14px rgba(0, 192, 48, 0.22));
+}
+
+.hero-greeting {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #00c030;
+  margin-bottom: 4px;
+}
+
+.hero h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.hero-tag {
+  font-size: 14px;
+  color: #99aabb;
+  line-height: 1.5;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.05s;
+}
+
+.hero-btn:hover { text-decoration: none; }
+.hero-btn:active { transform: translateY(1px); }
+
+.hero-btn-primary {
+  background: #00b020;
+  color: #fff;
+  border: 1px solid #00b020;
+}
+
+.hero-btn-primary:hover {
+  background: #00c824;
+  border-color: #00c824;
+}
+
+.hero-btn-secondary {
+  background: transparent;
+  color: #b0b8c0;
+  border: 1px solid #2a3038;
+}
+
+.hero-btn-secondary:hover {
+  border-color: #4a5560;
+  color: #e6eaef;
+}
+
+/* ── Page layout ──────────────────────────────────────────────────────────── */
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.block-head {
+  margin-bottom: 28px;
+}
+
+.block-step {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #00c030;
+  margin-bottom: 10px;
+}
+
+.block-head h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.block-sub {
+  color: #99aabb;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 620px;
+}
+
+/* ── Setup steps ──────────────────────────────────────────────────────────── */
+
+.steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 18px;
+  background: #14181c;
+  border: 1px solid #1b2026;
+  border-radius: 10px;
+  padding: 20px 22px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.step:hover {
+  border-color: #2a3038;
+  background: #161b20;
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #1b2026;
+  border: 1px solid #2a3038;
+  border-radius: 50%;
+  color: #00c030;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.step-body h3 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.step-body p {
+  color: #b0b8c0;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.step-body p:last-child { margin-bottom: 0; }
+
+.step-body .note {
+  background: #181f17;
+  border-left: 2px solid #00c030;
+  color: #99aabb;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+/* ── Form hints table ─────────────────────────────────────────────────────── */
+
+.form-hints {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 6px;
+  font-size: 13px;
+}
+
+.form-hints td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #1b2026;
+  vertical-align: top;
+}
+
+.form-hints tr:last-child td { border-bottom: none; }
+
+.form-hints td:first-child {
+  color: #99aabb;
+  font-weight: 500;
+  width: 38%;
+}
+
+.form-hints td:last-child {
+  color: #d0d4da;
+}
+
+.form-hints code {
+  background: #0e1216;
+  border-color: #1f262d;
+}
+
+/* ── Features ─────────────────────────────────────────────────────────────── */
+
+.features {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  /* Bleed the scroller into the page padding so the cards feel like they
+     belong to the whole row, not a narrow centered column. */
+  margin: 0 -24px;
+  padding: 4px 24px 12px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #2a3038 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.features::-webkit-scrollbar { height: 8px; }
+.features::-webkit-scrollbar-track { background: transparent; }
+.features::-webkit-scrollbar-thumb {
+  background: #2a3038;
+  border-radius: 4px;
+}
+.features::-webkit-scrollbar-thumb:hover { background: #3a424c; }
+
+.feature {
+  flex: 0 0 360px;
+  display: flex;
+  flex-direction: column;
+  background: #14181c;
+  border: 1px solid #1b2026;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  scroll-snap-align: start;
+}
+
+.feature:hover { border-color: #2a3038; }
+
+.feature-shot {
+  margin: 0;
+  background: #0a0d10;
+  aspect-ratio: 16 / 10;
+  border-bottom: 1px solid #1b2026;
+}
+
+.feature-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+.feature-shot:hover img {
+  transform: scale(1.02);
+}
+
+.feature-text {
+  padding: 10px 14px 12px;
+}
+
+.feature-text h3 {
+  color: #e6eaef;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.feature-text p {
+  color: #7a838e;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* Bonus card has no screenshot — center the text vertically so the empty
+   image slot doesn't leave a hole at the top of the card. */
+.feature-bonus {
+  justify-content: center;
+}
+
+.feature-bonus .feature-text {
+  padding: 18px 16px;
+}
+
+/* ── Why-a-key (compact 3-card strip, sits right before Setup) ────────────── */
+
+.why-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.why-grid li {
+  background: #14181c;
+  border: 1px solid #1b2026;
+  border-radius: 8px;
+  padding: 12px 14px;
+  transition: border-color 0.2s;
+}
+
+.why-grid li:hover { border-color: #2a3038; }
+
+.why-grid h3 {
+  color: #e6eaef;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.why-grid p {
+  color: #7a838e;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.why-grid a { color: #00c030; }
+.why-grid a:hover { text-decoration: underline; }
+
+@media (max-width: 620px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Outro ────────────────────────────────────────────────────────────────── */
+
+.outro h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.outro p {
+  color: #b0b8c0;
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+
+.page-footer {
+  text-align: center;
+  padding: 28px 24px 40px;
+  color: #56606b;
+  font-size: 12px;
+  border-top: 1px solid #1b2026;
+}
+
+.page-footer a { color: #6b7480; }
+
+/* ── Zoom overlay (click any feature screenshot to view it full size) ─────── */
+
+#zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(8, 10, 13, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+  animation: zoom-fade-in 0.18s ease-out;
+}
+
+/* Image + caption stack — capped at 92vh so the caption always fits. */
+.zoom-content {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 94vw;
+  cursor: default;
+}
+
+#zoom-overlay img {
+  display: block;
+  /* Reserve ~12vh for the caption so the title/description don't get pushed
+     off-screen on shorter viewports. */
+  max-width: 94vw;
+  max-height: 78vh;
+  border-radius: 6px;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+  animation: zoom-scale-in 0.2s ease-out;
+}
+
+.zoom-caption {
+  text-align: center;
+  max-width: 560px;
+  user-select: text;
+}
+
+.zoom-caption h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.zoom-caption p {
+  color: #99aabb;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.zoom-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 24, 28, 0.75);
+  border: 1px solid #2a3038;
+  border-radius: 50%;
+  color: #ccc;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.zoom-close:hover {
+  background: rgba(40, 48, 56, 0.95);
+  border-color: #4a5560;
+  color: #fff;
+}
+
+@keyframes zoom-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes zoom-scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Scroll cue ───────────────────────────────────────────────────────────── */
+
+.scroll-cue {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: rgba(20, 24, 28, 0.85);
+  border: 1px solid #2a3038;
+  border-radius: 50%;
+  color: #99aabb;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  user-select: none;
+  transition: opacity 0.3s ease, transform 0.2s ease,
+              background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.scroll-cue:hover {
+  background: rgba(30, 36, 42, 0.95);
+  border-color: #4a5560;
+  color: #fff;
+}
+
+.scroll-cue:active {
+  transform: scale(0.94);
+}
+
+.scroll-cue svg {
+  display: block;
+  animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+  /* Make absolutely sure clicks land on the <button>, not the SVG path. */
+  pointer-events: none;
+}
+
+.scroll-cue.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes scroll-cue-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(3px); }
+}
+
+@media (max-width: 620px) {
+  .scroll-cue {
+    bottom: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ── Mobile-ish narrow widths ─────────────────────────────────────────────── */
+
+@media (max-width: 620px) {
+  .hero { padding: 48px 18px 40px; }
+  .hero h1 { font-size: 24px; }
+  .hero-tag { font-size: 15px; }
+  .page { padding: 40px 18px 48px; gap: 40px; }
+  .block-head h2 { font-size: 20px; }
+  /* Horizontal scroller bleeds to the page's mobile padding. */
+  .features { margin: 0 -18px; padding: 4px 18px 12px; }
+  .feature { flex-basis: 280px; }
+  .step {
+    grid-template-columns: 36px 1fr;
+    padding: 16px;
+    gap: 14px;
+  }
+  .form-hints td:first-child { width: 42%; }
+}
